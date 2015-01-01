@@ -47,10 +47,10 @@ LONG_NOTE_FREQS = { "A":261.6,
 
 
 def amplitude_decay (time):
-    return 0.12 * (1-math.exp(-50*time)) * math.exp(-5*time)
+    return 0.24 * (1-math.exp(-50*time)) * math.exp(-5*time)
 
 def amplitude_decay_long (time):
-    return 0.10 * (1-math.exp(-50*time)) * math.exp(-1.5*time)
+    return 0.20 * (1-math.exp(-50*time)) * math.exp(-1.5*time)
 
 
 def sine_wave (frequency, amplitude, reduce=1.0):
@@ -109,12 +109,10 @@ if __name__ == "__main__":
         
         # harmonics of a piano note. based on C4
         s = numpy.array( list( sine_wave(1*freq, amplitude_decay) ) )
-        s = numpy.add(s, list( sine_wave(2*freq, amplitude_decay, reduce=0.52)   ) )
-        s = numpy.add(s, list( sine_wave(3*freq, amplitude_decay, reduce=0.033)  ) )
-        s = numpy.add(s, list( sine_wave(4*freq, amplitude_decay, reduce=0.033)  ) )
-        s = numpy.add(s, list( sine_wave(5*freq, amplitude_decay, reduce=0.0165) ) )
-        s = numpy.add(s, list( sine_wave(6*freq, amplitude_decay, reduce=0.0263) ) )
-        s = numpy.add(s, list( sine_wave(7*freq, amplitude_decay, reduce=0.052)  ) )
+        s = numpy.add(s, list( sine_wave(2*freq, amplitude_decay, reduce=0.209) ) )
+        s = numpy.add(s, list( sine_wave(3*freq, amplitude_decay, reduce=0.033) ) )
+        s = numpy.add(s, list( sine_wave(4*freq, amplitude_decay, reduce=0.033) ) )
+        s = numpy.add(s, list( sine_wave(5*freq, amplitude_decay, reduce=0.016) ) )
         
         NOTE_WAVEFORMS[note] = s
         
@@ -124,12 +122,10 @@ if __name__ == "__main__":
         
         # harmonics of a piano note. based on C4
         s = numpy.array( list( sine_wave(1*freq, amplitude_decay_long) ) )
-        s = numpy.add(s, list( sine_wave(2*freq, amplitude_decay_long, reduce=0.52)   ) )
-        s = numpy.add(s, list( sine_wave(3*freq, amplitude_decay_long, reduce=0.033)  ) )
-        s = numpy.add(s, list( sine_wave(4*freq, amplitude_decay_long, reduce=0.033)  ) )
-        s = numpy.add(s, list( sine_wave(5*freq, amplitude_decay_long, reduce=0.0165) ) )
-        s = numpy.add(s, list( sine_wave(6*freq, amplitude_decay_long, reduce=0.0263) ) )
-        s = numpy.add(s, list( sine_wave(7*freq, amplitude_decay_long, reduce=0.052)  ) )
+        s = numpy.add(s, list( sine_wave(2*freq, amplitude_decay_long, reduce=0.209) ) )
+        s = numpy.add(s, list( sine_wave(3*freq, amplitude_decay_long, reduce=0.033) ) )
+        s = numpy.add(s, list( sine_wave(4*freq, amplitude_decay_long, reduce=0.033) ) )
+        s = numpy.add(s, list( sine_wave(5*freq, amplitude_decay_long, reduce=0.016) ) )
         
         NOTE_WAVEFORMS[note] = s
         
